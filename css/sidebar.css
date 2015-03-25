@@ -1,0 +1,212 @@
+      html {
+
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        top: 0;
+        position: absolute;
+        width: 100%;
+        overflow: scroll;
+      }
+      h1 {
+        font-size: 46px;
+        color: #F07454;
+        font-family: open sans, sans serif;
+        font-weight: 700;
+        width: 100%;
+        padding: .5em 0 0em 0em;
+        margin: 0;
+        margin-bottom: .1em;
+      }
+      h2 {
+        font-size: 22px;
+        color: #F07454;
+        font-family: open sans, sans serif;
+        font-weight: 700;
+        width: 100%;
+        padding: .5em 0 0em .8em;
+        margin-bottom: .5em;
+      }
+      h3 {
+        font-size: 16px;
+        color: #F07454;
+        font-family: open sans, sans serif;
+        font-weight: 700;
+        display: inline;
+      }
+      .text-body {
+        font-size: 14px;
+        font-weight: 400;
+        color: #545D5F;
+        font-family: open sans, sans;
+        margin: 1em 0 0 3em;
+        float: none;
+        max-width: 800px;
+      }
+      .text-body > div {
+        margin-bottom: 1em;
+      }
+      .center {
+        text-align: center;
+        margin: 0 auto;
+      }
+      .center > div {
+        max-width: 550px;
+        text-align: left;
+        margin: 0 auto;
+      }
+      img {
+        max-width: 800px;
+      }
+
+      a {
+        font-family: open sans, sans serif;
+        font-size: 14px;
+        color: #008CBA;
+      }
+      a:hover {
+        color: #EC3F12;
+      }
+
+      .bold {
+        font-weight: 900;
+      }
+      .indent {
+        margin-left: 1.5em;
+        margin-top: .5em;
+      }
+      .underline {
+        width: 50%;
+        border-bottom: 1px solid #008CBA;
+        margin: 2em 0 0 0em;
+      }
+
+      nav {
+        position: fixed;
+        left: 0;
+        height: 100%;
+        width: 250px;
+        background-color: #EC3F12;
+        color: rgba(255,255,255,.8);
+        font-size: 18px;
+        z-index: 2;
+        padding: 0;
+        margin: 0;
+      }
+      nav ul {
+        padding: 0;
+        margin: 0;
+      }
+      nav ul li {
+        font-family: open sans, sans serif;
+        font-size: 18px;
+        height: 40px;
+        width: 230px;
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-left: 10px;
+      }
+      nav ul li:hover {
+        background-color: #F07454;
+        color: white;
+        z-index: 3;
+      }
+      nav ul li.selected {
+        color: white;
+        border-right: rgba(255,255,255,.6) solid 3px;
+        z-index: 999999;
+        width: 224px;
+      }
+      .center-container {
+        position: relative;
+        width: 100%;
+      }
+
+      div.mousescroll {
+        overflow: hidden;
+      }
+      div.mousescroll:hover {
+        overflow-y: auto;
+      }
+
+      div#chatlist {
+        width: 50px;
+        height: 140px;
+        border: 1px solid black;
+      }
+
+      #title {
+        left: 300px;
+        position: absolute;
+      }
+
+      .pane {
+        display: none;
+        position: absolute;
+        width: 600px;
+      }
+      .pane > .q {
+        font-size: 15px;
+        margin-bottom: 1em;
+        margin-top: .8em;
+      }
+      .pane.selected {
+        display: block;
+      }
+      select {
+        text-transform: capitalize;
+      }
+      td, th {
+        width: 120px;
+        text-align: left;
+      }
+      table {
+        margin-top: 3em;
+      }
+      .button {
+        background-color: white;
+        color: #EC3F12;
+        display: block;
+        right: 16px;
+        font-size: 13px;
+        border: 1px solid #EC3F12;
+        border-radius: 8px;
+        padding: 8px;
+        font-family: open sans, sans serif;
+        width: auto;
+        max-width: 8.5em;
+        text-align: center;
+        width: 70px;
+        font-weight: 600;
+        margin-top: 1em;
+      }
+      .button:hover {
+        cursor: pointer;
+      }
+      .right {
+        margin-left: auto;
+        margin-right: 0;
+      }
+      select {
+        padding: 5px;
+        border: 1px solid rgba(84, 93, 95, 0.5);
+        border-radius: 8px;
+        font-family: open sans, sans serif;
+        color: #545D5F;
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+      input[type=text] {
+        padding: 5px;
+        border: 1px solid rgba(84, 93, 95, 0.5);
+        border-radius: 8px;
+        font-family: open sans, sans serif;
+        color: #545D5F;
+      }
+      .code {
+        font-family: consolas;
+      }
+      .italics {
+        font-style: oblique;
+      }
