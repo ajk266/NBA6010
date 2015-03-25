@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<meta name="og:description" content="" data-dynamic="true">
+		<title>NBA 6010 A2</title>
+		<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+		<!-- 		<script src="js/jquery-2.1.js"></script> -->
+		<script src="http://code.jquery.com/jquery-1.6.4.js"></script>
+		<script src="js/slimscroll.js"></script>
+
+		<link rel="stylesheet" href="css/fonts.css" />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/global.css" />
+		<style>
+      html {
+
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        top: 0;
+        position: absolute;
+        width: 100%;
+        overflow: scroll;
+      }
+      h1 {
+        font-size: 46px;
+        color: #F07454;
+        font-family: open sans, sans serif;
+        font-weight: 700;
+        width: 100%;
+        padding: .5em 0 0em 0em;
+        margin: 0;
+        margin-bottom: .1em;
+      }
+      h2 {
+        font-size: 22px;
+        color: #F07454;
+        font-family: open sans, sans serif;
+        font-weight: 700;
+        width: 100%;
+        padding: .5em 0 0em .8em;
+        margin-bottom: .5em;
+      }
+      h3 {
+        font-size: 16px;
+        color: #F07454;
+        font-family: open sans, sans serif;
+        font-weight: 700;
+        display: inline;
+      }
+      .text-body {
+        font-size: 14px;
+        font-weight: 400;
+        color: #545D5F;
+        font-family: open sans, sans;
+        margin: 1em 0 0 3em;
+        float: none;
+        max-width: 800px;
+      }
+      .text-body > div {
+        margin-bottom: 1em;
+      }
+      .center {
+        text-align: center;
+        margin: 0 auto;
+      }
+      .center > div {
+        max-width: 550px;
+        text-align: left;
+        margin: 0 auto;
+      }
+      img {
+        max-width: 800px;
+      }
+
+      a {
+        font-family: open sans, sans serif;
+        font-size: 14px;
+        color: #008CBA;
+      }
+      a:hover {
+        color: #EC3F12;
+      }
+
+      .bold {
+        font-weight: 900;
+      }
+      .indent {
+        margin-left: 1.5em;
+        margin-top: .5em;
+      }
+      .underline {
+        width: 50%;
+        border-bottom: 1px solid #008CBA;
+        margin: 2em 0 0 0em;
+      }
+
+      nav {
+        position: fixed;
+        left: 0;
+        height: 100%;
+        width: 250px;
+        background-color: #EC3F12;
+        color: rgba(255,255,255,.8);
+        font-size: 18px;
+        z-index: 2;
+        padding: 0;
+        margin: 0;
+      }
+      nav ul {
+        padding: 0;
+        margin: 0;
+      }
+      nav ul li {
+        font-family: open sans, sans serif;
+        font-size: 18px;
+        height: 40px;
+        width: 230px;
+        padding-top: 10px;
+        padding-left: 10px;
+        margin-left: 10px;
+      }
+      nav ul li:hover {
+        background-color: #F07454;
+        color: white;
+        z-index: 3;
+      }
+      nav ul li.selected {
+        color: white;
+        border-right: rgba(255,255,255,.6) solid 3px;
+        z-index: 999999;
+        width: 224px;
+      }
+      .center-container {
+        position: relative;
+        width: 100%;
+      }
+
+      div.mousescroll {
+        overflow: hidden;
+      }
+      div.mousescroll:hover {
+        overflow-y: auto;
+      }
+
+      div#chatlist {
+        width: 50px;
+        height: 140px;
+        border: 1px solid black;
+      }
+
+      #title {
+        left: 300px;
+        position: absolute;
+      }
+
+      .pane {
+        display: none;
+        position: absolute;
+        width: 600px;
+      }
+      .pane > .q {
+        font-size: 15px;
+        margin-bottom: 1em;
+        margin-top: .8em;
+      }
+      .pane.selected {
+        display: block;
+      }
+      select {
+        text-transform: capitalize;
+      }
+      td, th {
+        width: 120px;
+        text-align: left;
+      }
+      table {
+        margin-top: 3em;
+      }
+      .button {
+        background-color: white;
+        color: #EC3F12;
+        display: block;
+        right: 16px;
+        font-size: 13px;
+        border: 1px solid #EC3F12;
+        border-radius: 8px;
+        padding: 8px;
+        font-family: open sans, sans serif;
+        width: auto;
+        max-width: 8.5em;
+        text-align: center;
+        width: 70px;
+        font-weight: 600;
+        margin-top: 1em;
+      }
+      .button:hover {
+        cursor: pointer;
+      }
+      .right {
+        margin-left: auto;
+        margin-right: 0;
+      }
+      select {
+        padding: 5px;
+        border: 1px solid rgba(84, 93, 95, 0.5);
+        border-radius: 8px;
+        font-family: open sans, sans serif;
+        color: #545D5F;
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+      input[type=text] {
+        padding: 5px;
+        border: 1px solid rgba(84, 93, 95, 0.5);
+        border-radius: 8px;
+        font-family: open sans, sans serif;
+        color: #545D5F;
+      }
+      .code {
+        font-family: consolas;
+      }
+      .italics {
+        font-style: oblique;
+      }
+		</style>
+
+	</head>
+	<body>
+		<nav>
+			<div id="side-nav" class="mousescroll" style="direction: rtl; width: 250px; height: 100%; ">
+				<div style="direction: ltr; padding: 3px;">
+
+					<ul>
+						<li class="selected">
+							1.
+						</li>
+						<li>
+							2.
+						</li>
+						<li>
+							3.
+						</li>
+						<li>
+							4.
+						</li>
+						<li>
+							5.
+						</li>
+						<li>
+							6.
+						</li>
+						<li>
+							7.
+						</li>
+						<li>
+							8.
+						</li>
+						<li>
+							9.
+						</li>
+						<li>
+							10.
+						</li>
+						<li>
+							11.
+						</li>
+						<li>
+							12.
+						</li>
+						<li>
+							13.
+						</li>
+						<li>
+							14.
+						</li>
+						<li>
+							Notes
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div id="title">
+
+		</div>
+		<div class='center-container'>
+			<div class='center'>
+
+				<h1> NBA 6010 A2 </h1>
+
+				<div class='text-body' style="width: 290px;">
+					Bryce Evans (bae43) &amp; Adam Kirsch (ajk266)
+				</div>
+
+				<div class='text-body'>
+
+					<div class='pane selected' id="pane-1">
+						<h2> 1. </h2>
+						<div class='q'>
+							<h3> a) </h3>Create a database with one table for your business. Make sure it has no unnecessary redundancy. Keep your database small for demonstration purposes with just a few columns and a few rows of data. Describe your database on your a2 page by using the notation
+							TABLENAME (attribute1,attribute2,...), and also in English.
+
+						</div>
+
+						<div class="bold code">
+							listings(unit_id, unit_title, date_reg, location, price, deposit, owner_id)
+						</div>
+
+						<div>
+							This table holds information related listings on Yorango. Each row is a listing created by a landlord
+							and contains some basic info for clients to search and filter by.
+						</div>
+
+						<table>
+							<tr>
+								<th>unit_id</th><th>unit_title</th><th>date_reg</th><th>location</th><th>price</th><th>deposit</th><th>owner_id</th>
+							</tr>
+							<tr>
+								<td>1</td><td>2 Bedroom</td><td>20150-03-07</td><td>collegetown</td><td>700</td><td>700</td><td>1</td>
+							</tr>
+							<tr>
+								<td>4</td><td>grad housing</td><td>2015-03-01</td><td>east hill</td><td>550</td><td>500</td><td>1</td>
+							</tr>
+							<tr>
+								<td>3</td><td>party house</td><td> 2015-01-30</td><td>west campus</td><td>650</td><td>0</td><td>2</td>
+							</tr>
+							<tr>
+								<td>2</td><td>studio</td><td>2015-02-15</td><td>collegetown</td><td>1100</td><td>1000</td><td>3</td>
+							</tr>
+
+						</table>
+
+					</div>
+
+					<div class='pane' id="pane-2">
+						<h2> 2. </h2>
+						<div class='q'>
+							<h3> a) </h3>Write a sample query relevant to your business, and save it in your database. Describe your query on your a2 page by writing your query in SQL, and in English.
+
+						</div>
+						<div class="bold code">
+							SELECT unit_id, unit_title FROM listings WHERE location='collegetown' AND price&lt;1000
+						</div>
+
+						This finds all listings that are located in Collegetown and cost less than $1000/month.
+						<br>
+						<br>
+						<div class="italics">
+							Note: query was not saved to DB as Postgres does not support this feature.
+						</div>
+					</div>
+
+					<div class='pane' id="pane-3">
+						<h2> 3. </h2>
+						<div class='q'>
+							<h3> a) </h3>
+							Add a second table to your database. Make sure it is also non-redundant. Describe the new table on your a2 page by using the notation <span class="code">TABLENAME (attribute1,attribute2,...)</span>, and also in English.
+						</div>
+						<div>
+							<span class="bold code">owners(id, name, email)</span>
+							<br>
+							<br>
+							This table maintains all of the landlords signed up for the service. It gives each a unique id, and keeps their name and contact info.
+						</div>
+						<div class='q'>
+							<h3> b) </h3>
+							Write a two-table query. Save it in your database. Describe the new query on your a2 page by
+							writing it in SQL, and also in English.
+
+						</div>
+						<div>
+							<span class="bold code"> SELECT unit_id, unit_title, price, deposit
+								<br>
+								FROM listings, owners
+								<br>
+								WHERE owners.name='Terry Jones'
+								<br>
+								AND owners.owner_id=listings.owner_id
+								<br>
+								AND listings.location='collegetown'</span>
+
+							<p>
+								This query gives all of Terry Jones' listings in Collegetown.
+							</p>
+							<p class="italics">
+								Note: query was not saved to DB as Postgres does not support this feature.
+							</p>
+						</div>
+						<div class='q'>
+							<h3> c) </h3>
+							Move your database into your web site.
+						</div>
+						<div>
+							<span class="bold code"> postgres://nba6010:nba6010@web469.webfaction.com:5432/bryce_nba6010 </span>
+							<br>
+							<br>
+
+							Username: nba6010
+							<br>
+							Password: nba6010
+							<br>
+							DB Name: bryce_nba6010
+							<br>
+							Address: web469.webfaction.com
+							<br>
+							Port: 5432
+							<br>
+							<br>
+
+							<br>
+							<div>
+								See <span class="italics">Notes</span> section for more.
+							</div>
+
+						</div>
+					</div>
+
+					<div class='pane' id="pane-4">
+						<h2> 4. </h2>
+						<div class='q'>
+							<h3> a) </h3> Explain how Target determines if someone is pregnant.
+						</div>
+						<div>
+
+							<div class="bold">
+								y. By observing their purchases at Target stores.
+							</div>
+						</div>
+
+						<div>
+							Target aggregates consumer information and purchase histories under Guest IDs, which serve as repositories for this information and inform marketing campaigns highly targeted to individual consumers.  In this case, Target noticed trends in purchase histories corresponding to different trimesters in pregnancies, which allowed the retailer to create a "pregnancy prediction" score useful for advertising to them.
+						</div>
+						<div class='q'>
+							<h3> b) </h3> What is relationship marketing? Why is it easier to do on the web? Indicate which and briefly explain.
+						</div>
+
+						<div class="bold">
+							z. It involves tracking customers over time, and it is easier to track the process of buying on the web.
+						</div>
+						<div>
+
+							Relationship marketing focuses on tracking customer needs over time, and using the information acquired to flexibly address their needs.  Assuming the accuracy of data collected, this is far easier to do and much more inexpensive than one-off marketing.  It is easier to do on the web as well, with cookies and similar technologies employed to follow users and better identify their needs, informing marketing efforts.
+						</div>
+
+						<div class='q'>
+							<h3> c) </h3> Why is relationship marketing more desirable than mass marketing? Why was mass marketing more desirable in the past? What changed? Indicate which and briefly explain.
+						</div>
+
+						<div class="bold">
+							x. Tracking an existing customer became cheaper than acquiring a new customer because of the database technology.
+						</div>
+						<div>
+							Relationship marketing is more desirable than mass marketing because it is cheaper and easier and highly useful.  Historically, mass marketing offered both cost and ease advantages, making it preferable.  However, information technologies like databases and cookies not only made this cheaper, but simpler as well as the Internet evolved and commerce increasingly moved online.
+						</div>
+
+						<div class='q'>
+							<h3> d) </h3> How can you use relationship marketing in your business to improve customer service?
+						</div>
+						<div>
+							Yorango can use relationship marketing to improve customer service by collecting data about how they engage with the platform and identifying problem areas that are either heavily trafficked or avoided, and providing relevant and timely tips or targeted inquiries to preemptively address concerns (e.g. an unfinished transaction).
+						</div>
+					</div>
+
+					<div class='pane' id="pane-5">
+						<h2> 5. </h2>
+
+						<div class='q'>
+							<h3> a) </h3> How can online stores exploit the services provided by physical stores? How can physical stores respond? Indicate which and briefly explain.
+						</div>
+
+						<div class="bold">
+							y. They can utilize the showrooms and sales force of physical stores for physically showing the products, but physical stores can have add on services and charge for them.
+						</div>
+						<div>
+							Showrooming is a major problem for physical stores, especially as online stores gain traction and market share.  Consumers can visit physical stores to learn about products and try them out, but still turn to the Internet to make a purchase.  While physical stores can also develop e-commerce platforms, they’re also able to offer additional services that online offerings cannot match.  These bring in high margins which offset losses to free riding and showrooming.
+						</div>
+
+						<div class='q'>
+							<h3> b) </h3> Read the article titled "Google vs Amazon" and explain how Google intends to create an online store? Indicate which and briefly explain.
+						</div>
+
+						<div class="bold">
+							x. Google intends to make the inventories of all physical stores available online and searchable.
+						</div>
+						<div>
+							Google’s foray into online shopping leverages their core competency in search to give online customers a better way to find retailers and their products, creating value for stores engaging Google’s services for advertising and other functions and cutting into Amazon’s market share.
+						</div>
+
+						<div class='q'>
+							<h3> c) </h3>  Explain how you can create synergies between physical and online stores in your business,
+							if possible. If not possible, give another example of a business successfully creating
+							synergies between online and physical stores.
+
+						</div>
+						<div>
+							In the real estate space, traditional stores do not exist.  However, properties are inherently "showroomed," a broker’s office can easily be eliminated through information technologies.  After touring a property, all paperwork and payment can be handled online, developing a synergy that lowers costs and increases efficiency for both parties.
+						</div>
+
+					</div>
+
+					<div class='pane' id="pane-6">
+						<h2>6. </h2>
+						<div class='q'>
+							<h3> a) </h3>
+							Read the article on Culturomics and describe how Google’s Digitized Book database can
+							be used to understand historical and cultural trends. Indicate which and briefly explain.
+
+						</div>
+						<div>
+							<p class="bold">
+								w. By counting the number of references to each subject.
+							</p>
+							<p>
+								Google’s Digitized Book database leverages massive amounts of digitized text to quantify and identify trends,
+								using algorithms to track how many references are made throughout the entire body of aggregated text, allowing them to see the
+								persistence of historical and cultural phenomena.
+							</p>
+						</div>
+						<div class='q'>
+							<h3> b) </h3>
+							Describe how, using the same techniques, Google’s Search Engine Data can be used to make
+							predictions about the future. Indicate which and briefly explain.
+
+						</div>
+						<div>
+							<p class="bold">
+								x. By counting the number of searches for each subject.
+							</p>
+							<p>
+								Just as Google Books counts references, which reflect the trends of the time, Google Search can recognize
+								trends in what people are looking for, with emergent patterns reflecting interests of the day and implying
+								future searches for similar content.
+							</p>
+						</div>
+
+						<div class='q'>
+							<h3> c) </h3>
+							Explain how you can use such historical trends and future predictions in your business strategy, with an example.
+
+						</div>
+						<div>
+							By tracking historical fluctuations in rent prices and matching them to macroeconomic trends, Yorango can predict future fluctuations and develop smart pricing algorithms for listed properties, similar to Zillow’s Zestimate.
+						</div>
+						<div class='q'>
+							<h3> d) </h3>
+							Use Google Ngram Viewer to plot some historical and cultural trends related to your business. For example, you can plot how the relative emphasis on wireless internet and wired internet changed during the last 20 years. Provide a screen shot of your graph on your web page.
+
+						</div>
+						<div>
+							<img src="https://lh6.googleusercontent.com/8lZYJkVhmNBicr3EM7bFc6PqM_UODjjiLnEICZ2XVtu9pkMjcLiqdQUJ5YgYfkhDNTSeiX3WqPvGjd40_NHsBJ8ye4qbCCGEGvNvuIrqnibdB8My0MzQp3qSZPej5getgI-b8C4"/>
+						</div>
+					</div>
+					<div class='pane' id="pane-7">
+						<h2> 7. </h2>
+						<div class='q'>
+							<h3> a) </h3>
+							Report on your web page how HSX operates and how you could use this approach to prediction in your business. If you can’t use it, give an example from another business.
+						</div>
+						<div>
+							HSX purchases reflect fans’ interest in new films.  Films attracting trading activity are more popular and thus can be expected to succeed in the box office. Yorango could allow users to “upvote” or “downvote” properties, creating a market based on
+							consumer interest, that would allow us to predict the sales prices of apartments reaching the market with similar characteristics.
+						</div>
+						<div class='q'>
+							<h3> b) </h3>
+							Go to their main page at www.hsx.com, click on Signup and buy stock in various movies. Provide a screenshot of your purchases on your web page.
+						</div>
+						<div>
+							<img src="https://lh3.googleusercontent.com/4ckqTKmobwC4HCYFF_rLhUeCVCoTFr75OixNmVvklKxuHMo_Qhx12buGFteqUCiXso9fsPKeGzSXD10IRzRT7REuKQYTla6Qajmpr0YSRwzoj-3-LRHXjykepEly1bV9I3bXafU"/>
+						</div>
+					</div>
+					<div class='pane' id="pane-8">
+						<h2> 8. </h2>
+						<div class='q'>
+							<h3> a) </h3>
+							Create a static data page containing the response to your query from Question 2. Save it in your folder. Create a link to it from your a2 page.
+						</div>
+						<div>
+							<table>
+								<tr>
+									<th>unit_id</th><th>unit_title</th><th>price</th><th>deposit</th>
+								</tr>
+								<tr>
+									<td>1</td><td>2 Bedroom</td><td>700</td><td>700</td>
+								</tr>
+							</table>
+						</div>
+						<br>
+						<br>
+						<div class='q'>
+							<h3> b) </h3>
+							Create a dynamic data page, and a link to it from your a2 page
+						</div>
+						<div>
+
+							<table id="8b">
+								<tr>
+									<th>ID</th><th>Name</th><th>Price</th><th>Deposit</th>
+								</tr>
+
+							</table>
+
+							<script>
+                $.ajax({
+                  url : "http://ecommerce.bryceevans.photography/8b",
+                }).done(function(data) {
+                  for (var i = 0; i < data.length; i++) {
+                    var l = data[i];
+                    $('table#8b').append('<tr>	<td>' + l.unit_id + '</td><td>' + l.unit_title + '</td><td>' + l.price + '</td>	<td>' + l.deposit + '</td>	</tr>');
+
+                  }
+                });
+
+							</script>
+						</div>
+					</div>
+
+					<div class='pane' id="pane-9">
+						<div class='q'>
+							<h2> 9. </h2>
+							Create an interactive data page, and a link to it from your main page.
+						</div>
+
+						<form id="interactive-form">
+
+							Location <select id="location-list"></select>
+							<br>
+							Min Price:
+							<input type="text" id="min-price" name="min-price" style="margin-right: 1em;"/>
+							Max Price:
+							<input type="text" id="max-price" name="max-price"  />
+
+						</form>
+						<div id="interactive-form-submit" class="button right">
+							Submit
+						</div>
+						<table id="results-table" style="display: none;">
+							<tr>
+								<th>ID</th><th>Name</th><th>Location</th><th>Price</th><th>Deposit</th>
+							</tr>
+
+						</table>
+						<script>
+              $.ajax({
+                url : "http://ecommerce.bryceevans.photography/location-list",
+              }).done(function(data) {
+                for (var i = 0; i < data.length; i++) {
+                  $('#location-list').append('<option value="' + data[i].location + '">' + data[i].location + '</option>')
+                }
+              });
+              $('#interactive-form-submit').click(function() {
+                var location = $('#location-list').val().toLowerCase();
+                var min_price = $('#min-price').val();
+                var max_price = $('#max-price').val();
+                $.ajax({
+                  url : "http://ecommerce.bryceevans.photography/9",
+                  data : {
+                    location : location,
+                    min_price : min_price,
+                    max_price : max_price,
+                  }
+                }).done(function(data) {
+                  // clear old results
+                  $("#results-table").find("tr:gt(0)").remove();
+                  $("#results-table").show();
+
+                  for (var i = 0; i < data.length; i++) {
+                    var l = data[i];
+                    $('#results-table').append('<tr>			<td>' + l.unit_id + '</td><td>' + l.unit_title + '</td><td>' + l.location + '</td><td>' + l.price + '</td>	<td>' + l.deposit + '</td>	</tr>');
+                  }
+                });
+              });
+						</script>
+					</div>
+					<div class='pane' id="pane-10">
+						<h2> 10. </h2>
+						<div class='q'>
+							<h3> a) </h3> Consider the following database with two tables: <span class="code">CUSTOMER(cname,caddress) ORDER(cname,pname,quantity) </span> where <span class="code">c</span> denotes customer, <span class="code">p</span> denotes product, and a customer can have many orders, but each with a different product, and hence cname-pname pair is a unique identifier of orders. Write a query to find customers with no orders. Indicate which is correct and explain briefly.
+						</div>
+						<div>
+							<p class="bold code">
+								SELECT CUSTOMER.cname FROM CUSTOMER
+								<br>
+								WHERE CUSTOMER.cname NOT IN
+								<br>
+								(SELECT cname FROM ORDER)
+								<br>
+							</p>
+							<p class="bold code" style="display: none;">
+								select owners.owner_id, owners.name
+								from owners
+								where owners.owner_id not in
+
+								(select owner_id from listings)
+							</p>
+
+						</div>
+						<div class='q'>
+							<h3> b) </h3> Consider the following database with one table containing customer and order information: <span class="code">ORDER(cname, caddress, pname, quantity)</span> where <span class="code">c</span>
+							denotes customer, <span class="code">p</span> denotes product, and a customer can have many orders,
+							but each with a different product, and hence cname-pname pair is a unique identifier of orders. Does
+							it have any nontrivial redundancy and how do you eliminate it. Indicate which, and explain briefly.
+
+						</div>
+						<div>
+							The customer address (<span class="code">caddress</span>) is redundant.
+							If a customer wished to update their address, it would have to be updated in every row for every order they placed.
+							If a single row is missed, it becomes unclear which address is theres as now there are multiple addresses saved.
+
+						</div>
+					</div>
+					<div class='pane' id="pane-11">
+						<h2> 11. </h2>
+						<div class='q'>
+							<h3> a) </h3>Explain the fundamental tradeoff between inconsistency and information overload in organizational decision-making. How is it related to the centralization-decentralization debate? Indicate which and briefly explain.
+						</div>
+						<div>
+							<p class="bold">
+								y. Decentralized decisions made at the edges of the organization may lead to inconsistency; centralized decisions made at the center may lead to information overload.
+							</p>
+							<p>
+
+								Decentralization benefits organizations by limiting information overload, but risks inconsistency of similar decisions are being made in different ways in different parts of the organization, undermining business success.  This suggests centralization may address those concerns. However, centralizing decisions runs the risk of information overload as now all data is consolidated, making it difficult to identify information of value due to the volume thereof.
+							</p>
+						</div>
+						<div class='q'>
+							<h3> b) </h3>
+							Do network effects tip the balance towards centralization or decentralization according to Braess’ Paradox? Indicate which and briefly explain.
+						</div>
+						<div>
+							<p class="bold">
+								w. Network effects favor centralization.
+							</p>
+							<p>
+								Braess argues centralization is necessary in network effect cases to prevent suboptimal outcomes resulting from negative network effects.  Assuming a lack of centralization, the Braess Paradox demonstrates innovative technologies can trigger worse situations as they do not function in sync with one another and may act “selfishly,” infringing on the optimal outcome.
+							</p>
+						</div>
+						<div class='q'>
+							<h3> c) </h3>
+							Braess uses highways to demonstrate his paradox. Do highways have network effects? What kind? Indicate which and briefly explain.
+						</div>
+						<div>
+							<p class="bold">
+								w. Negative but indirect.
+							</p>
+							<p>
+								Highways have indirect negative network effects, because drivers on them, as Braess discusses, will switch routes continuously.  While switching may benefit individual drivers in the short run, the aggregation of switching and traffic redistribution slows down highways overall.
+
+							</p>
+						</div>
+
+						<div class='q'>
+							<h3> d) </h3>
+							Braess argues that wide spread adoption of new and improved technologies may leave everyone worse off. When? Indicate which and briefly explain with an example of that possibility
+						</div>
+						<div>
+							<p class="bold">
+								x. When there are network effects and the decisions are decentralized.
+							</p>
+							<p>
+								Decentralized decision-making leads to negative outcomes.  In a weapons example, consider nuclear arms.  When individual countries hold nuclear weapons, they incentivize others to hold arms so as to secure themselves and establish themselves as nuclear powers as well.  However, as more nuclear arms are built, all of human society inches closer to the risk of nuclear holocaust should a war break out.
+							</p>
+						</div>
+					</div>
+					<div class='pane' id="pane-12">
+						<h2> 12. </h2>
+						<div class='q'>
+							<h3> a) </h3>
+							Explain the basic tradeoff between market share and market size as it relates to technology
+							outsourcing? Indicate which and briefly explain.
+
+						</div>
+						<div>
+							<p class="bold">
+								y. Outsourcing reduces costs and increases market size; it also eliminates your competitive advantage and reduces your market share.
+							</p>
+							<p>
+								Outsourcing allows swift and cheap development, reducing complexity and enabling industry standards to emerge. However, this also leads to risk of an eroded competitive advantage and reduced market share as technology becomes commoditized.  However, the tradeoff is made because the reduced market share comes with the ability to succeed in a bigger market, albeit a smaller percentage thereof.
+							</p>
+						</div>
+						<div class='q'>
+							<h3> b) </h3>
+							Do network effects matter in this tradeoff? How? Indicate which and briefly explain.
+
+						</div>
+						<div>
+							<p class="bold">
+								x. Network effects favor outsourcing since a larger market size increases the value of the product.
+							</p>
+							<p>
+								Network effects matter in this case, as they are indicative of an industry standard’s emergence, implying a larger market share.  The combination of larger markets and network effects build product value by keeping a high quantity of users on that platform and enhancing market capture, even in the face of the market size-market share tradeoff.
+							</p>
+						</div>
+						<div class='q'>
+							<h3> c) </h3>
+							Explain the difference between the strategies of iPhone and Android phones as of 2010. How is it similar to the Apple vs Microsoft battle in the Microcomputer market of the 1980's? How is it different? Indicate which and briefly explain.
+						</div>
+						<div>
+							<p class="bold">
+								z. iPhone tightly controlled hardware design but Android outsourced it; same as Apple vs Microsoft; but unlike Apple of 1980’s iPhone outsourced applications.
+							</p>
+							<p>
+								The iPhone and Android competition in many ways mirrored that between Apple and Microsoft in the 1980s, with Apple controlling hardware aggressively and Android phones outsourced to a number of developers, most notably Samsung and HTC, in an attempt to grow their network.  However, Apple avoided their fatal mistake in the 1980s by outsourcing application development, betting that the vast selection of apps are a key component of the iPhone’s competitive advantage, a strategy that has proven highly successful and enabled the firm to not only grow the market, but also capture market share.
+							</p>
+						</div>
+						<div class='q'>
+							<h3> d) </h3>
+							What part of your business can you outsource safely? Will it impact your market share?
+							Will it increase the overall market size?
+
+						</div>
+						<div>
+							We can safely outsource listings on Yorango, allowing others to post them instead of adding them ourselves.  While we risk being seen as a commodity listing site like Craigslist, which could impact market share, we also are able to grow the market and can carve out a niche of a more sizeable space.
+						</div>
+					</div>
+					<div class='pane' id="pane-13">
+						<h2> 13. </h2>
+						<div class='q'>
+							<h3> a) </h3>Create an interactive update page and a link to it from your main page.
+						</div>
+						<div>
+
+							<p>
+								The following page checks that the user inputs a valid e-mail address before submitting the form to insert a new row in the <span class="code">owners</span> table.
+							</p>
+							<p class="bold">
+								New Landlord Signup
+							</p>
+							<form id="13a">
+
+								Name
+								<input type="text" id="13a-name" name="name" style="margin-right: 1em;"/>
+								<br>
+								<br>
+
+								E-Mail
+								<input type="text" id="13a-email" name="email"  />
+								<br>
+								<span id="13a-email-warning" style="opacity: 0; color: red;">Please enter a valid e-mail address.</span>
+
+							</form>
+							<div id="13a-submit" class="button right">
+								Submit
+							</div>
+							<script>
+                // from <http://stackoverflow.com/questions/46155/validate-email-address-in-javascript>
+                function validEmail(email) {
+                  var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                  return re.test(email);
+                }
+
+
+                $('#13a-submit').click(function() {
+                  if (validEmail($('#13a-email').val())) {
+                    $.post("http://ecommerce.bryceevans.photography/add-owner", $('#13a').serialize(), function(data) {
+
+                      $.ajax({
+                        url : "http://ecommerce.bryceevans.photography/EXECUTE",
+                        data : {
+                          QUERY : 'SELECT owner_id FROM owners WHERE name=\'' + $('#13a-name').val() + '\''
+                        }
+                      }).done(function(data) {
+                        alert('Success! Your owner ID is ' + data[0].owner_id);
+                      });
+
+                    }, "json" // The format the response should be in
+                    );
+                    $('#13a-email-warning').css('opacity', 0);
+                    $('#13a-email').text('');
+                    $('#13a-name').text('');
+
+                  } else {
+                    $('#13a-email-warning').css('opacity', 1);
+                  }
+                });
+							</script>
+
+						</div>
+						<div class='q'>
+							<h3> b) </h3>
+							Create a shopping cart on your main page to sell a digital good. Your shopping cart will be an interactive page that receives orders and payment, and then will allow downloading a digital good, such as a music file.
+						</div>
+						<div>
+							<span class="bold"> Buy this Problem Set in PDF form!</span>
+							<br>
+							<a href="https://www.payloadz.com/go/sip?id=2854864" target="paypal"><img src="http://image.payloadz.com/images/btn-buynow-b.png" border="0"/></a>
+						</div>
+					</div>
+					<div class='pane' id="pane-14">
+						<h2> 14. </h2>
+						<div class='q'>
+							<h3> a) </h3>
+							Create an interactive data page with input validation, so the input values are checked for
+							correctness before you submit the form.
+
+						</div>
+						<div>
+							<p>
+								From <span class="bold">13.a</span>.
+								<br>
+								The following page checks that the user inputs a valid e-mail address before submitting the form to insert a new row in the <span class="code">owners</span> table.
+							</p>
+							<p class="bold">
+								New Landlord Signup
+							</p>
+							<form id="14a">
+
+								Name
+								<input type="text" id="14a-name" name="name" style="margin-right: 1em;"/>
+								<br>
+								<br>
+
+								E-Mail
+								<input type="text" id="14a-email" name="email"  />
+								<br>
+								<span id="14a-email-warning" style="opacity: 0; color: red;">Please enter a valid e-mail address.</span>
+
+							</form>
+							<div id="14a-submit" class="button right">
+								Submit
+							</div>
+							<script>
+                // from <http://stackoverflow.com/questions/46155/validate-email-address-in-javascript>
+                function validEmail(email) {
+                  var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                  return re.test(email);
+                }
+
+
+                $('#14a-submit').click(function() {
+                  if (validEmail($('#14a-email').val())) {
+                    $.post("http://ecommerce.bryceevans.photography/add-owner", $('#14a').serialize(), function(data) {
+                      alert(data);
+                    }, "json" // The format the response should be in
+                    );
+                    $('#14a-email-warning').css('opacity', 0);
+                    $('#14a-email').text('');
+                    $('#14a-name').text('');
+                    alert('success!');
+                  } else {
+                    $('#14a-email-warning').css('opacity', 1);
+                  }
+                });
+							</script>
+
+						</div>
+						<div class='q'>
+							<h3> b) </h3>
+							Create a menu to interact with your database.
+						</div>
+						<div>
+
+							<form id="14b">
+
+								Location <select id="14b-location-list"></select>
+								<br>
+								Min Price:
+								<input type="text" id="14b-min-price" name="min-price" style="margin-right: 1em;"/>
+								Max Price:
+								<input type="text" id="14b-max-price" name="max-price"  />
+
+							</form>
+							<div id="14b-form-submit" class="button right">
+								Submit
+							</div>
+							<table id="14b-results-table" style="display: none;">
+								<tr>
+									<th>ID</th><th>Name</th><th>Location</th><th>Price</th><th>Deposit</th>
+								</tr>
+
+							</table>
+							<script>
+                $.ajax({
+                  url : "http://ecommerce.bryceevans.photography/location-list",
+                }).done(function(data) {
+                  for (var i = 0; i < data.length; i++) {
+                    $('#14b-location-list').append('<option value="' + data[i].location + '">' + data[i].location + '</option>')
+                  }
+                });
+                $('#14b-form-submit').click(function() {
+                  var location = $('#location-list').val().toLowerCase();
+                  var min_price = $('#14b-min-price').val();
+                  var max_price = $('#14b-max-price').val();
+                  $.ajax({
+                    url : "http://ecommerce.bryceevans.photography/9",
+                    data : {
+                      location : location,
+                      min_price : min_price,
+                      max_price : max_price,
+                    }
+                  }).done(function(data) {
+                    // clear old results
+                    $("#14b-results-table").find("tr:gt(0)").remove();
+                    $("#14b-results-table").show();
+
+                    for (var i = 0; i < data.length; i++) {
+                      var l = data[i];
+                      $('#14b-results-table').append('<tr>			<td>' + l.unit_id + '</td><td>' + l.unit_title + '</td><td>' + l.location + '</td><td>' + l.price + '</td>	<td>' + l.deposit + '</td>	</tr>');
+                    }
+                  });
+                });
+							</script>
+						</div>
+					</div>
+					<div class='pane' id="pane-Note">
+						<h2> Notes </h2>
+
+						We use a <span class="italics">PostgreSQL</span> data base for this assignment. It has fuller functionality than MS Access
+						and can be easily used on larger networks with more capability of scaling. We provide a full interface with our database through our server.
+						The server runs on Node.js and the full code can be found <a href="http://ecommerce.bryceevans.photography/public/server.js">here</a>. The server
+						can be interacted with below.
+						<br>
+						<br>
+						This is <span class="bold">real</span> data,
+						and does pose serious security risks, but we chose to allow this access for you.
+
+						<br>
+						<br>
+						<p class="bold">
+							Live Demo:
+						</p>
+						<div>
+							Query
+							<input type="text" id="query" name="query" class="code" style="width: 300px;" placeholder='ex. "select * from owners"' />
+							<div id="query-submit" class="button right">
+								Submit
+							</div>
+							<table id="query-table" >
+
+							</table>
+
+							<p class="bold">
+								Raw:
+							</p>
+							<div class="code" id="query_out">
+
+							</div>
+
+						</div>
+					</div>
+					<script>
+            $('#query-submit').click(function() {
+              $.ajax({
+                url : "http://ecommerce.bryceevans.photography/EXECUTE",
+                data : {
+                  QUERY : $('#query').val(),
+                }
+              }).done(function(data) {
+                $('#query-table').empty();
+                $('#query_out').text(JSON.stringify(data));
+
+                var header = $('<tr>');
+                var keys = Object.keys(data[0]);
+                for (var i in keys) {
+                  var key = keys[i];
+                  header.append('<th class="bold code"> ' + key + ' </th>');
+                }
+                $('#query-table').append(header);
+
+                for (var i in data) {
+                  var row = $('<tr>');
+                  for (var j in keys) {
+                    var key = keys[j];
+                    row.append('<td>' + data[i][key] + '</td>');
+
+                  }
+                  $('#query-table').append(row);
+                }
+
+              });
+            });
+					</script>
+				</div>
+			</div>
+			<script>
+        //invalid name call
+        $('#side-nav').slimscroll({
+          color : '#fff',
+          size : '8px',
+          width : '250px',
+          height : '100%'
+        });
+
+        var selected = $($('li')[0]);
+        var selected_pane = $('#pane-1');
+        $('li').click(function() {
+
+          var str = this.innerText;
+          var q_num = str.substring(0, str.trim().length - 1);
+
+          //clicked current tab
+          if (selected_pane.attr('id') == 'pane-' + q_num) {
+            return;
+          }
+
+          if (selected) {
+            selected.removeClass('selected');
+            selected_pane.fadeOut(400);
+          }
+          selected = $(this);
+          selected.addClass('selected');
+
+          selected_pane = $('#pane-' + q_num);
+          selected_pane.fadeIn(400);
+
+        });
+			</script>
+
+	</body>
+</html>
